@@ -61,8 +61,8 @@
                 <img src='{{ book.image }}' class="card-img-top">
                 <div class="card-body d-flex flex-column text-center">
                     <div class="m-auto">
-                        <h4 class="">{{ book.title }}</h4>
-                            <h5 class="">{{ book.author }}</h5>
+                        <h4 class="title-link" routerLink="/book/{{book.reference}}">{{ book.title }}</h4>
+                            <h5>{{ book.author }}</h5>
                         <p class="card-text fs-5 fw-bold">{{ (book.price)?.toFixed(2) }} €</p>
                     </div>
                     <div class="m-auto justify-content-md-end">

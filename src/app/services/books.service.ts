@@ -9,7 +9,9 @@ import { Book } from '../../../shared/models/book.model';
 export class BooksService {
   
   booksSubject = new Subject<any[]>();
+  bookSubject = new Subject<Book>();
   books: Book[] = [];
+  book: Book = new Book;
 
   emitBooks(){
     this.booksSubject.next(this.books);
@@ -20,6 +22,28 @@ export class BooksService {
       (response) => {
         this.books = response;
         this.emitBooks();
+      },
+      (error) => {
+        console.log("erreur : " + error);
+      }
+    )
+  }
+
+  emitBook(){
+    this.bookSubject.next(this.book);
+  }
+
+  getBookByReference(ref: string) {
+    this.getJSON().subscribe(
+      (response) => {
+        response.find(
+          (s) => {
+            if(s.reference === ref){
+              this.book = s;
+            };
+          }
+        );
+        this.emitBook();
       },
       (error) => {
         console.log("erreur : " + error);

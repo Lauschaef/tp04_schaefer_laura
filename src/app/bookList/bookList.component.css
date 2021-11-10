@@ -69,3 +69,7 @@ label {
     margin-bottom: 20px;
     padding-left: 8px;
 }
+
+.title-link:hover{
+    text-decoration: underline !important;
+}

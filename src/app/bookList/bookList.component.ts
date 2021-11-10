@@ -15,22 +15,15 @@ import { DeleteBookOfShoppingCart } from 'shared/actions/bookDelete.action';
 export class BookListComponent implements OnInit {
 
   books : Book[] = [];
-  booksOnShoppingCart : Observable<Book>;
   bookSubscription: Subscription | undefined;
   genderFilter : string = "";
   searchFilter : string = "";
   sortMode : string = "reference";
 
-  constructor(private booksService : BooksService, private router : Router, private store : Store) {
-    this.booksOnShoppingCart = this.store.select(state => state.booksOnShoppingCart.booksOnShoppingCart);
-  }
+  constructor(private booksService : BooksService, private router : Router, private store : Store) {}
 
   addBookOnShoppingCart(book: Book){
     this.store.dispatch(new AddBookOnShoppingCart(book));
-  }
-
-  deleteBookOfShoppingCart(book: Book){
-    this.store.dispatch(new DeleteBookOfShoppingCart(book));
   }
 
   ngOnInit(): void {
@@ -42,7 +35,6 @@ export class BookListComponent implements OnInit {
 
     this.booksService.getBooks();
     this.booksService.emitBooks();
-    console.log(this.booksService.books);
   }
 
 }

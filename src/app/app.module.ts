@@ -27,7 +27,8 @@ const appRoutes: Routes = [
   { path: 'formulaire', component: FormulaireComponent },
   { path: 'products', component: BookListComponent },
   { path: 'shopping-cart', component: ShoppingCartComponent},
-  { path: '', component: FormulaireComponent }
+  { path: 'book/:ref', component: BookComponent},
+  { path: '', component: BookListComponent }
 ];
 
 @NgModule({
@@ -51,8 +52,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    NgxsModule.forRoot([AdressState]),
-    NgxsModule.forRoot([BookState]),
+    NgxsModule.forRoot([AdressState, BookState]),
   ],
   providers: [
     FormService,
