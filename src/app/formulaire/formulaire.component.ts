@@ -60,6 +60,6 @@ export class FormulaireComponent implements OnInit {
 
     this.param.formSubmitted = true;
 
-    this.router.navigate(["/recap"]);
+    this.router.navigate(["/catalogue/recap"]);
   }
 }

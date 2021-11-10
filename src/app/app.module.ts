@@ -11,40 +11,29 @@ import { RecapComponent } from './recap/recap.component';
 import { FormService } from './services/form.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
-import { PhonePipe } from './pipes/phone.pipe';
 import { BookListComponent } from './bookList/bookList.component';
 import { VariablesGlobales } from './variablesGlobales';
 import { BookFilterPipe } from './pipes/gender-filter.pipe';
 import { SearchPipe } from './pipes/search.pipe';
 import { OrderByPipe } from './pipes/order-by.pipe';
 import { BookState } from 'shared/states/book-state';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import { BookComponent } from './book/book.component';
 import { AdressState } from 'shared/states/adress-state';
 
 const appRoutes: Routes = [
-  { path: 'recap', component: RecapComponent },
-  { path: 'formulaire', component: FormulaireComponent },
-  { path: 'products', component: BookListComponent },
-  { path: 'shopping-cart', component: ShoppingCartComponent},
-  { path: 'book/:ref', component: BookComponent},
+  { path: 'catalogue',
+    loadChildren: () => import('./page/page.module'). then(m => m.PageModule)},
   { path: '', component: BookListComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormulaireComponent,
+    BookListComponent,
     HeaderComponent,
     FooterComponent,
-    RecapComponent,
-    PhonePipe,
-    BookListComponent,
     BookFilterPipe,
     SearchPipe,
     OrderByPipe,
-    ShoppingCartComponent,
-    BookComponent
   ],
   imports: [
     BrowserModule,
@@ -60,9 +49,6 @@ const appRoutes: Routes = [
   ],
   bootstrap: [
     AppComponent
-  ],
-  exports: [
-    PhonePipe
   ]
 })
 export class AppModule { }

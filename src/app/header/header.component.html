@@ -7,21 +7,21 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="nav navbar-nav">
           <li class="nav-item" *ngIf="param.formSubmitted; else formulaire">
-            <a class="nav-link" routerLinkActive="active" routerLink="/recap">Mes informations</a>
+            <a class="nav-link" routerLinkActive="active" routerLink="/catalogue/recap">Mes informations</a>
           </li>
           <ng-template #formulaire>
             <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" routerLink="/formulaire">Formulaire</a>
+              <a class="nav-link" routerLinkActive="active" routerLink="/catalogue/formulaire">Formulaire</a>
             </li>
           </ng-template>
           
           <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active" routerLink="/products">Les livres</a>
+            <a class="nav-link" routerLinkActive="active" routerLink="/catalogue/products">Les livres</a>
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-              <a class="nav-link position-relative" routerLink="/shopping-cart" routerLinkActive="active">
+              <a class="nav-link position-relative" routerLink="/catalogue/shopping-cart" routerLinkActive="active">
                 <i class="bi bi-cart3"></i> 
                 Panier
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-fuschia">
